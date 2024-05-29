@@ -1,9 +1,14 @@
-﻿using DataAccessLayer.Concrete;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using SeyfolioWeb.Areas.Writer.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -14,8 +19,9 @@ namespace SeyfolioWeb.Areas.Writer.Controllers
     [Area("Writer")]
     public class DashboardWriterController : Controller
     {
-        UserManager<WriterUser> _userManager;
+        private readonly UserManager<WriterUser> _userManager;
 
+        CityManager _cityManager = new CityManager(new EfCityDal());
 
         public DashboardWriterController(UserManager<WriterUser> userManager)
         {
@@ -58,6 +64,18 @@ namespace SeyfolioWeb.Areas.Writer.Controllers
             ViewBag.humidity = humidity;
             ViewBag.windSpeed = windSpeed;
             ViewBag.windDegree = windDegree;
+
+            var cities = new List<Cities>()
+            {
+                new Cities{ CityId= 1, CityName= "Konya",isSelected=true},
+                new Cities{ CityId= 2, CityName= "Ankara",isSelected=false}
+                new Cities{ CityId= 3, CityName= "İstanbul",isSelected=false}
+
+            };
+            SelectList citySelectList = new SelectList(cities);
+
+            ViewBag.citySelectList = citySelectList;
+
 
             return View();
         }
