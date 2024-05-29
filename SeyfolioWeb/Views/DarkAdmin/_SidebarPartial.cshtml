@@ -69,6 +69,15 @@
 
         </li>
 
+        <li class="nav-item menu-items @(ViewBag.isActive == "/Writer/DashboardWriter/Index" ? "active" : "nonactive")">
+            <a class="nav-link" href="/Writer/DashboardWriter/Index">
+                <span class="menu-icon">
+                    <i class="mdi mdi-speedometer"></i>
+                </span>
+                <span class="menu-title">Yazar Paneli</span>
+            </a>
+        </li>
+
         <li class="nav-item menu-items @(ViewBag.isActive == "/Feature/Index" ? "active" : "nonactive")">
             <a class="nav-link" href="/Feature/Index">
                 <span class="menu-icon">
@@ -203,14 +212,7 @@
                 <span class="menu-title">AJAX ile Deneyimler</span>
             </a>
         </li>
-        <li class="nav-item menu-items @(ViewBag.isActive == "/Writer/DashboardWriter/Index" ? "active" : "nonactive")">
-            <a class="nav-link" href="/Writer/DashboardWriter/Index">
-                <span class="menu-icon">
-                    <i class="mdi mdi-speedometer"></i>
-                </span>
-                <span class="menu-title">Yazar Paneli</span>
-            </a>
-        </li>
+    
 
         <hr />
 
