@@ -43,6 +43,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TSave()
+        {
+            _messageDal.Save();
+        }
+
         public void TUpdate(Message t)
         {
             _messageDal.Update(t);  

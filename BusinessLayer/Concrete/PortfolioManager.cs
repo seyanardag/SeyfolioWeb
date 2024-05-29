@@ -43,6 +43,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TSave()
+        {
+            _portfolioDal.Save();
+        }
+
         public void TUpdate(Portfolio t)
         {
             _portfolioDal.Update(t);

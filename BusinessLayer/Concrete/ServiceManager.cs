@@ -42,6 +42,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TSave()
+        {
+           _service.Save();
+        }
+
         public void TUpdate(Service t)
         {
            _service.Update(t);

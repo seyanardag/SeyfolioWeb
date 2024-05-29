@@ -43,6 +43,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TSave()
+        {
+            _featureDal.Save();
+        }
+
         public void TUpdate(Feature t)
         {
             _featureDal.Update(t);

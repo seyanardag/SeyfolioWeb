@@ -45,6 +45,12 @@ namespace DataAccessLayer.Repository
             c.SaveChanges();
         }
 
+        public void Save()
+        {
+            using var c = new Context();
+            c.SaveChanges();
+        }
+
         public void Update(T t)
         {
             using var c = new Context();

@@ -44,6 +44,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TSave()
+        {
+            _aboutDal.Save();
+        }
+
         public void TUpdate(About t)
         {
            _aboutDal.Update(t); 

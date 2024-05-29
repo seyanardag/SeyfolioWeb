@@ -43,6 +43,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TSave()
+        {
+            _socialMediaDAL.Save();
+        }
+
         public void TUpdate(SocialMedia t)
         {
             _socialMediaDAL.Update(t);

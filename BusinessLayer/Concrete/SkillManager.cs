@@ -43,6 +43,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TSave()
+        {
+            _skillDal.Save();
+        }
+
         public void TUpdate(Skill t)
         {
             _skillDal.Update(t);

@@ -44,6 +44,11 @@ namespace BusinessLayer.Concrete
 
         }
 
+        public void TSave()
+        {
+            _cityDal.Save();
+        }
+
         public void TUpdate(Cities t)
         {
             _cityDal.Update(t);

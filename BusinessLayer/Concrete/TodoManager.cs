@@ -43,6 +43,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TSave()
+        {
+           _todoDal.Save();
+        }
+
         public void TUpdate(ToDoEntity t)
         {
             _todoDal.Update(t);

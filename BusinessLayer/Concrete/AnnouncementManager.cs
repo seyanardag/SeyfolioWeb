@@ -43,6 +43,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TSave()
+        {
+            _announcement.Save();
+        }
+
         public void TUpdate(Announcement t)
         {
             _announcement.Update(t);

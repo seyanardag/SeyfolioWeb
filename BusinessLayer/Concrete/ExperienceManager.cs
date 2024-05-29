@@ -43,6 +43,11 @@ namespace BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TSave()
+        {
+            _experienceDal.Save();
+        }
+
         public void TUpdate(Experience t)
         {
            _experienceDal.Update(t);

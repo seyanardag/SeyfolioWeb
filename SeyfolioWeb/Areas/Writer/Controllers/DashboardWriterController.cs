@@ -42,7 +42,7 @@ namespace SeyfolioWeb.Areas.Writer.Controllers
 
         //TODO: Api kullanım sayısı bitmemesi için comment e alındı
             string apiKey = "600daf6984e3483189a144509242404";
-            string city = "Konya";
+            string city = _cityManager.GetList().Where(x=>x.isSelected==true).FirstOrDefault().CityName;
             string apiConnection = $"https://api.weatherapi.com/v1/current.json?key={apiKey}&q={city}&aqi=no";
 
 
@@ -65,14 +65,9 @@ namespace SeyfolioWeb.Areas.Writer.Controllers
             ViewBag.windSpeed = windSpeed;
             ViewBag.windDegree = windDegree;
 
-            var cities = new List<Cities>()
-            {
-                new Cities{ CityId= 1, CityName= "Konya",isSelected=true},
-                new Cities{ CityId= 2, CityName= "Ankara",isSelected=false}
-                new Cities{ CityId= 3, CityName= "İstanbul",isSelected=false}
+            var cities = _cityManager.GetList();
 
-            };
-            SelectList citySelectList = new SelectList(cities);
+            SelectList citySelectList = new SelectList(cities,"CityId","CityName");
 
             ViewBag.citySelectList = citySelectList;
 
@@ -82,7 +77,23 @@ namespace SeyfolioWeb.Areas.Writer.Controllers
 
 
 
+        public async Task<IActionResult> CityChangeAsync(int selectedCity)
+        {
+           List<Cities> cities = _cityManager.GetList().Where(x=>x.isSelected == true).ToList();
+            foreach (var item in cities)
+            {
+                item.isSelected = false;
+            }
 
+            _cityManager.GetById(selectedCity).isSelected=true;
+            //using Context context = new Context();
+            //await context.SaveChangesAsync();
+            _cityManager.TSave();
+
+
+
+            return RedirectToAction("Index");
+        }
 
         public async Task<WeatherData> GetWeatherDataAsync(string apiConnection)
         {
