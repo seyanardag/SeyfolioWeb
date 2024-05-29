@@ -1,0 +1,26 @@
+﻿@model List<WriterMessage>
+
+
+
+@foreach (var item in Model)
+{
+    <a class="dropdown-item preview-item" href="/Writer/Message/MessageDetail/@item.WriterMessageId">
+  
+        <div class="preview-item-content w-100">
+            <h6 class="preview-subject font-weight-normal">@item.Subject</h6>
+            <div class="font-weight-light small-text mb-0 text-muted w-100 d-flex justify-content-between">
+                <span>
+                    @item.SenderName
+                </span>
+
+                <span >
+                    @item.Date.ToString("dd MMM yyyy - hh:mm")
+                </span>
+                  
+            </div>
+        </div>
+    </a>
+}
+
+
+

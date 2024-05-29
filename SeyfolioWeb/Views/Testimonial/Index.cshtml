@@ -1,0 +1,52 @@
+﻿@model List<Testimonial>
+
+@{
+    ViewData["Title"] = "Referanslar";
+    Layout = "~/Views/Shared/_DarkAdminLayout.cshtml";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title"> Referans Tablosu </h4>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr class="w-100">
+                            <th style="width:10%" >#</th>
+                            <th style="width:10%" >Müşteri Adı</th>
+                            <th style="width:10%" >Müşteri Şirkeit</th>
+                            <th style="width:auto" >Müşteri Yorumu</th>
+                            <th style="width:10%" >Foto Url</th>
+                            <th style="width:10%" >SİL</th>
+                            <th style="width:10%" >GÜNCELLE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var testimonial in Model)
+                        {
+
+                            <tr>
+                                <td>@testimonial.TestimonialId</td>
+                                <td>@testimonial.ClientlName</td>
+                                <td>@testimonial.Company</td>
+                                <td style="white-space:normal;" >@testimonial.Comment</td>
+                                <td>@testimonial.ImageUrl</td>
+                                <td> <a href="/Testimonial/DeleteTestimonial/@testimonial.TestimonialId" class="btn btn-danger">SİL</a> </td>
+                                <td> <a href="/Testimonial/UpdateTestimonial/@testimonial.TestimonialId" class="btn btn-primary">GÜNCELLE</a> </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/Testimonial/AddTestimonial" class="btn btn-success ml-3"> Yeni Referans Ekle </a>
+
+

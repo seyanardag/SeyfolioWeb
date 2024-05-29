@@ -1,0 +1,81 @@
+﻿@model UserEditViewModel
+
+@{
+    ViewData["Title"] = "UpdateProfile";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Profil Güncelle</h4>
+
+            <form class="forms-sample" method="post" asp-area="Writer" asp-controller="Profile" asp-action="UpdateProfile" enctype="multipart/form-data">
+
+
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input type="text" class="form-control" asp-for="Name" placeholder="Ad">    
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>                         
+
+                <div class="form-group">
+                    <label asp-for="Surname"></label>
+                    <input type="text" class="form-control" asp-for="Surname" placeholder="Soyad">
+                    <span class="text-danger" asp-validation-for="Surname"></span>
+
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="UserName"></label>
+                    <input type="text" class="form-control" asp-for="UserName" placeholder="Kullanıcı Adı">
+                    <span class="text-danger" asp-validation-for="UserName"></span>
+
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input type="email" class="form-control" asp-for="Email" placeholder="e-posta">
+                    <span class="text-danger" asp-validation-for="Email"></span>
+
+                </div> 
+
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input type="password" class="form-control" asp-for="Password" placeholder="Şifre">
+                    <span class="text-danger" asp-validation-for="Password"></span>
+
+                </div>
+                
+                <div class="form-group">
+                    <label asp-for="PasswordConfirm"></label>
+                    <input type="password" class="form-control" asp-for="PasswordConfirm" placeholder="Şifre">
+                    <span class="text-danger" asp-validation-for="PasswordConfirm"></span>
+
+                </div>
+                
+
+
+                <div class="form-group">
+                    <label>Profil Fotoğrafı</label>
+                    <input type="file" asp-for="ImageFile">
+                    @* <input type="file" asp-for="ImageFile" class="file-upload-default">
+                    <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Resim yükle">
+                        <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button">Seç</button>
+                        </span>
+                    </div> *@
+
+                    <span class="text-danger" asp-validation-for="ImageFile"></span>
+
+                </div>
+
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+            
+                <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+                
+            </form>
+        </div>
+    </div>
+</div>

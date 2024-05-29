@@ -1,0 +1,265 @@
+﻿
+<style>
+    .dot {       
+        width: 5px;
+        height: 5px;        
+        border-radius: 50%;
+        background: #b2b2b2;
+    }
+
+    .nonActive:hover {
+        cursor:none;
+        user-select:none;        
+        background-color: rgba(100,0,0,0) !important;
+    }
+
+    .spaced {
+        margin-right: 5px; 
+    }
+
+    #sidebar .nav-link:hover {
+        transform:translateX(10px) !important;
+        transition:transform 200ms ease-in-out !important;
+    }       
+    
+</style>
+
+
+
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Default/Index">
+                <span class="material-symbols-outlined spaced">
+                    captive_portal
+                </span>
+                <span class="menu-title">Siteye Dön</span>
+            </a>
+        </li>
+
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/DashboardWriter/Index">
+                @* <i class="icon-grid menu-icon"></i> *@
+                <span class="material-symbols-outlined spaced">
+                    grid_view
+                </span>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/Message/SendMessage">
+                @* <i class="icon-grid menu-icon"></i> *@
+                <span class="material-symbols-outlined spaced">
+                    add_comment
+                </span>
+                <span class="menu-title">Yeni Mesaj</span>
+            </a>
+        </li>
+
+
+        <li class="nav-item nonActive">
+            <span class="nav-link">
+                @* <i class="ti-notepad menu-icon"></i> *@
+                <span class="material-symbols-outlined spaced">
+                    speaker_notes
+                </span>
+                <span class="menu-title">Mesajlar</span>
+            </span>            
+        </li>
+
+        <li class="nav-item ">
+            <a class="nav-link ml-3" href="/Writer/Message/ReceivedMessages">
+                <i class="dot menu-icon"></i>
+                <span class="menu-title">Gelen Kutusu</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link  ml-3" href="/Writer/Message/SentMessages">
+                <i class="dot menu-icon"></i>
+                <span class="menu-title">Giden Kutusu</span>
+            </a>
+        </li>
+
+
+
+
+        <li class="nav-item nonActive">
+            <span class="nav-link ">
+                @* <i class="mdi mdi-account-filter menu-icon"></i> *@
+                <span class="material-symbols-outlined spaced">person</span>
+                <span class="menu-title">Kullanıcı İşlemleri</span>
+            </span>
+
+        </li>
+
+        <li class="nav-item ">
+            <a class="nav-link ml-3" href="/Writer/Login/Index">
+                <i class="dot menu-icon"></i>
+                <span class="menu-title">Giriş Yap</span>
+            </a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link  ml-3" href="/Writer/Register/Index">
+                <i class="dot menu-icon"></i>
+                <span class="menu-title">Hesap Oluştur</span>
+            </a>
+        </li>
+
+
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/Announcement/Index">
+                @* <i class="ti-announcement menu-icon"></i> *@
+                <span class="material-symbols-outlined spaced">
+                    campaign
+                </span>
+                <span class="menu-title">Duyurular</span>
+            </a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/Profile/UpdateProfile">
+                @* <i class="ti-settings menu-icon"></i> *@
+                <span class="material-symbols-outlined spaced">
+                    manage_accounts
+                </span>
+                <span class="menu-title">Profil Ayarları</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/Login/Logout">
+                @* <i class="ti-power-off menu-icon"></i> *@
+               
+
+                <span class="material-symbols-outlined spaced">
+                    logout
+                </span>
+               
+                <span class="menu-title">Çıkış Yap</span>
+            </a>
+        </li>
+        
+
+        
+
+        <br />
+        <br />
+        <br />
+        ------------------
+
+
+
+      
+        <li class="nav-item">
+            <a class="nav-link" href="~/skydash/index.html">
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">UI Elements</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="~/skydash/pages/ui-features/buttons.html">Buttons</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="~/skydash/pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="~/skydash/pages/ui-features/typography.html">Typography</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+                <i class="icon-columns menu-icon"></i>
+                <span class="menu-title">Form elements</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="~/skydash/pages/forms/basic_elements.html">Basic Elements</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+                <i class="icon-bar-graph menu-icon"></i>
+                <span class="menu-title">Charts</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="~/skydash/pages/charts/chartjs.html">ChartJs</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+                <i class="icon-grid-2 menu-icon"></i>
+                <span class="menu-title">Tables</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tables">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="~/skydash/pages/tables/basic-table.html">Basic table</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+                <i class="icon-contract menu-icon"></i>
+                <span class="menu-title">Icons</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="icons">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="~/skydash/pages/icons/mdi.html">Mdi icons</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                <i class="icon-head menu-icon"></i>
+                <span class="menu-title">User Pages</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="~/skydash/pages/samples/login.html"> Login </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="~/skydash/pages/samples/register.html"> Register </a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
+                <i class="icon-ban menu-icon"></i>
+                <span class="menu-title">Error pages</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="error">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="~/skydash/pages/samples/error-404.html"> 404 </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="~/skydash/pages/samples/error-500.html"> 500 </a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="~/skydash/pages/documentation/documentation.html">
+                <i class="icon-paper menu-icon"></i>
+                <span class="menu-title">Documentation</span>
+            </a>
+        </li>
+    </ul>
+</nav>

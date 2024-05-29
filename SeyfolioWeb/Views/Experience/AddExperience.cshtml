@@ -1,0 +1,50 @@
+﻿@model Experience
+@{
+    ViewData["Title"] = "AddExperience";
+    Layout = "~/Views/Shared/_DarkAdminLayout.cshtml";
+}
+
+
+
+
+<div class="mx-4 " style="min-height:50vh">
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"> Yeni Deneyim Ekle </h4>
+
+                <form class="forms-sample" action="/Experience/AddExperience" method="post">
+
+
+                    <div class="form-group">
+                        <label>Deneyim Adı</label>
+                        <input class="form-control" asp-for="Name" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Deneyim Tarih Aralığı</label>
+                        <input class="form-control" asp-for="Date" />
+                        <span asp-validation-for="Date" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Resim</label>
+                        <input class="form-control" asp-for="ImageUrl" />
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        <input class="form-control" asp-for="Description" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+
+                    <button class="btn btn-success mt-3" type="submit">EKLE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

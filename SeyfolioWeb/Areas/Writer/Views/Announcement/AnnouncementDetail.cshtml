@@ -1,0 +1,35 @@
+﻿@model Announcement
+
+@{
+    ViewData["Title"] = "AnnouncementDetail";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+<div>
+    <h4 >Duyuru Detayı</h4>
+
+    <dl>
+        <div class="row text-secondary">
+            <dd class="col-3">ID</dd>
+            <dt class="col-9">:@Model.ID</dt>
+        </div>
+        <div class="row">
+            <dd class="col-3">Başlık</dd>
+            <dt class="col-9">:@Model.Title</dt>
+        </div>
+        <div class ="row">
+            <dd class ="col-3">Tarih</dd>
+            <dt class="col-9">:@Model.Date.ToString("dd MMMM yyyy - hh:mm")</dt>
+        </div>
+        <div class="row">
+            <dd class="col-3">DURUM</dd>
+            <dt class="col-9">:@Model.Status</dt>
+        </div>
+        <div class="row">
+            <dd class="col-3">İÇERİK</dd>
+            <dt class="col-9">:@Model.Content</dt>
+        </div>
+    </dl>
+
+</div>

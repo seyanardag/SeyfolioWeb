@@ -1,0 +1,52 @@
+﻿@* @model List<UserMessage>
+
+<div class="col-md-6 col-xl-4 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex flex-row justify-content-between">
+                <h4 class="card-title">Mesajlar</h4>
+                <p class="text-muted mb-1 small">Tümünü görüntüle</p>
+            </div>
+            <div class="preview-list">
+                @foreach (var message in Model)
+                {
+                    <div class="preview-item border-bottom">
+                        <div class="preview-thumbnail">
+                            <img src="@message.User.ImageUrl" alt="image" class="rounded-circle" />
+                        </div>
+                        <div class="preview-item-content d-flex flex-grow">
+                            <div class="flex-grow">
+                                <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                    <h6 class="preview-subject"> @message.User.Name </h6>
+                                    <p class="text-muted text-small"> @message.Date.ToShortDateString() </p>
+                                </div>
+                                <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                   
+                                    <h6 class="preview-subject" title="@message.Content" style="cursor:grab;" onmouseover="this.style.color='red' " onmouseout="this.style.color='blue'">
+                                        @if (@message.Content.Length > 15)
+                                        {
+                                            @String.Concat(@message.Content.Substring(0, 13), "...")
+                                        }
+                                        else
+                                        {
+                                            @message.Content
+                                        }
+                                    </h6>
+                                    <p class="text-muted text-small">  @message.Date.ToShortTimeString() </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+ *@

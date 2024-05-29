@@ -1,0 +1,42 @@
+﻿@model SocialMedia
+
+@{
+    ViewData["Title"] = "Sosyal Medya";
+    Layout = "~/Views/Shared/_DarkAdminLayout.cshtml";
+}
+
+<div class="mx-4 ">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"> Yeni Sosyal Medya Bağlantıları Ekle </h4>
+
+                <form class="forms-sample" action="/SocialMedia/Add" method="post">
+
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        <input class="form-control" asp-for="Name" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Icon</label>
+                        <input class="form-control" asp-for="Icon" />
+                        <span asp-validation-for="Icon" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Link</label>
+                        <input class="form-control" asp-for="Url" />
+                        <span asp-validation-for="Url" class="text-danger"></span>
+                    </div>
+
+                    <button class="btn btn-success mt-3" type="submit">EKLE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin">
+        <div class="row">
+            <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+            <h3 class="font-weight-bold">Hoşgeldin @ViewBag.userName </h3>
+                <h6 class="font-weight-normal mb-0">Yazar Dashboard Paneli.  @* Okunmayan  <span class="text-primary">3 unread alerts!</span></h6> *@
+            </div>
+            <div class="col-12 col-xl-4">
+                <div class="justify-content-end d-flex">
+                    <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                        <button class="btn btn-sm btn-light bg-white " type="button" >
+                            @* <i class="mdi mdi-calendar"></i>  *@
+                            
+                        @{
+                            DateTime today = DateTime.Today;
+                            string formattedToday = today.ToString("dd MMMM yyyy dddd");
+                        }
+                            
+                            Bugün : @formattedToday
+                        </button>
+                   
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card ">
+            <div class="card-people pt-0">
+                <img class="img-fluid" src="~/appImages/4seasons.jpg" alt="people">
+                <div class="weather-info">
+                    <div class="d-flex rounded p-2" style="background-color:#f5fbff; flex-direction:column">
+                        <div class="d-flex">                       
+                            <div class="bordered" >
+                                <img src="@ViewBag.icon" alt="@ViewBag.conditionText" style="width:2rem; height:contain">
+                                <h2 class="mb-0 font-weight-normal">   @ViewBag.temperatureInCelsius <sup>C</sup></h2> 
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="location font-weight-normal">@ViewBag.cityName</h4>
+                                <h6 class="font-weight-normal">@ViewBag.countryName</h6>
+                                <h6 class="font-weight-normal">Nem: @ViewBag.humidity</h6>
+                            </div>
+                        </div>
+
+                        <div class="text-center w-100">
+                            <span class="material-symbols-outlined mt-3 mb-0" style="transform:rotate(@(ViewBag.windDegree+"deg"));font-size:2rem">
+                                straight
+                            </span>
+                            <p class="font-weight-normal mb-0">Rüzgar Yönü: @ViewBag.windDegree</p>
+                            <p class="font-weight-normal">Rüzgar Hızı: @ViewBag.windSpeed km/sa</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 grid-margin transparent">
+        <div class="row">
+            <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale">
+                    <div class="card-body">
+                        <p class="mb-4">Gelen Mesaj Sayısı</p>
+                    <p class="fs-30 mb-2">@ViewBag.gelenMesajSayisi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue">
+                    <div class="card-body">
+                        <p class="mb-4">Duyuru Sayısı</p>
+                    <p class="fs-30 mb-2">@ViewBag.duyusuSayisi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                <div class="card card-light-blue">
+                    <div class="card-body">
+                        <p class="mb-4">Toplam Kullanıcı Sayısı</p>
+                    <p class="fs-30 mb-2">@ViewBag.kullaniciSayisi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 stretch-card transparent">
+                <div class="card card-light-danger">
+                    <div class="card-body">
+                        <p class="mb-4">Toplam yetenek sayısı</p>
+                    <p class="fs-30 mb-2">@ViewBag.yetenekSayisi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title"> Yazar Paneli </p>
+                <p class="font-weight-500"> Yazarlar için mesaj, duyuru gibi bilgilerin yer aldığı sayfadır. </p>
+                <p class="font-weight-500"> Yardıma ihtiyacınız olursa iltişim sayfasından bizlere ulaşabilirsiniz. </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="">
+                    <p class="card-title"> Dashboard Sayfası </p>
+                </div>
+                <p class="font-weight-500"> Projemizin yazar panelinde bazı istatistiksel değerler ve hava durumu api si üzerinden hava durumu bilgisini öğrenebilirisn. </p>
+                <div id="sales-legend" class="chartjs-legend mt-4 mb-2"></div>
+            </div>
+        </div>
+    </div>
+</div>

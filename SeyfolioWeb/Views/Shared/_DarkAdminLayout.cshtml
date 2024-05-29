@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+    @await Html.PartialAsync("~/Views/DarkAdmin/_HeadPartial.cshtml")
+<body>
+    
+    <div class="container-scroller">
+        <!-- partial:~/DarkTemplate/Template/partials/_sidebar.html -->
+        @await Html.PartialAsync("~/Views/DarkAdmin/_SidebarPartial.cshtml")
+
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:~/DarkTemplate/Template/partials/_navbar.html -->
+            @await Html.PartialAsync("~/Views/DarkAdmin/_TopNavbarPartial.cshtml")
+
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                        @RenderBody()
+
+                </div>
+                
+                <!-- content-wrapper ends -->
+                <!-- partial:~/DarkTemplate/Template/partials/_footer.html -->
+                @await Html.PartialAsync("~/Views/DarkAdmin/_FooterPartial.cshtml")
+
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    @await Html.PartialAsync("~/Views/DarkAdmin/_ScriptPartial.cshtml")
+
+
+
+</body>
+</html>

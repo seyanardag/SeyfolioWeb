@@ -1,0 +1,67 @@
+﻿@model WriterMessage
+
+@{
+    ViewData["Title"] = "MessageDetail";
+    Layout = "~/Views/Shared/_DarkAdminLayout.cshtml";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Mesaj Detayları</h4>
+
+            <dl class="w-100">
+                <div class="row text-secondary">
+                    <dd class="col-2">ID</dd>
+                    <dt class="col-10">: @Model.WriterMessageId</dt>
+                </div>
+                <div class="row">
+                    <dd class="col-2">Gönderen</dd>
+                    <dt class="col-10">: @Model.SenderName</dt>
+                </div>
+                <div class="row">
+                    <dd class="col-2">Gönderen e-posta</dd>
+                    <dt class="col-10">: @Model.Sender</dt>
+                </div>
+
+                <div class="row">
+                    <dd class="col-2">Alıcı</dd>
+                    <dt class="col-10">: @Model.ReceiverName</dt>
+                </div>
+                <div class="row">
+                    <dd class="col-2">Alıcı e-posta</dd>
+                    <dt class="col-10">: @Model.Receiver</dt>
+                </div>
+                <div class="row">
+                    <dd class="col-2">Konu</dd>
+                    <dt class="col-10">: @Model.Subject</dt>
+                </div>
+                <div class="row">
+                    <dd class="col-2">Tarih</dd>
+                    <dt class="col-10">: @Model.Date.ToString("dd MMMM yyyy - hh:mm")</dt>
+                </div>
+                <div class="row">
+                    <dd class="col-2">İçerik</dd>
+                    <dt class="col-10">: @Model.Content</dt>
+                </div>
+
+
+            </dl>
+        </div>
+    </div>
+</div>
+
+<a href="/AdminMessage/ReceivedMessages/" class="btn btn-outline-warning ml-3" style="display:inline-flex; align-items:center">
+    <i class="mdi mdi-package-down" style="font-size:20px"></i> Gelen Mesajlara Dön
+</a>
+
+<a href="/AdminMessage/SentMessages/" class="btn btn-outline-warning ml-3" style="display:inline-flex; align-items:center">
+    <i class="mdi mdi-package-up" style="font-size:20px"></i> Giden Mesajlara Dön
+</a>
+
+
+
+
+
+

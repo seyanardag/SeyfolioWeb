@@ -1,0 +1,33 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@await Html.PartialAsync("~/Areas/Writer/Views/Default/_HeadPartial.cshtml")
+<body>
+    <div class="container-scroller">
+        <!-- partial:~/skydash/partials/_navbar.html -->
+        @await Html.PartialAsync("~/Areas/Writer/Views/Default/_TopPartial.cshtml")
+
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:~/skydash/partials/_sidebar.html -->
+            @await Html.PartialAsync("~/Areas/Writer/Views/Default/_SidebarPartial.cshtml")
+
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @* <div class="row"> *@
+
+                        @RenderBody()
+
+                    @* </div> *@
+                </div>
+                @await Html.PartialAsync("~/Areas/Writer/Views/Default/_FooterPartial.cshtml")
+            </div>
+        </div>
+
+    </div>
+    @await Html.PartialAsync("~/Areas/Writer/Views/Default/_ScriptPartial.cshtml")
+</body>
+
+</html>

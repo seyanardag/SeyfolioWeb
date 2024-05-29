@@ -1,0 +1,153 @@
+﻿@model List<Experience>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DarkAdminLayout.cshtml";
+}
+
+
+<style>
+    .borderCustom {
+        /* border: 1px solid rgba(0,210,91,255); */
+        border: 1px solid black;
+        border-radius:5px;
+        background-color: #191c24;
+    }
+
+
+    
+</style>
+
+
+
+<div class="mb-3 p-3 col-md-6 borderCustom ">
+
+    <h5>Deneyim Listesi</h5>
+    <div class="p-2" id="listExperience">
+        buraya veriler gelecek
+    </div>
+
+    <div class="">
+        <button type="button" id="getList" class="btn btn-outline-success"> Verileri getir </button>
+    </div>
+</div>
+
+
+<div class="mb-3 p-3 col-md-6 borderCustom ">
+    <input class="form-control" id="inpTitle" placeholder="Başlık" />
+    <br />
+    <input class="form-control" id="inpDate" placeholder="Tarih" />
+    <br />
+    <button type="button" id="btnAdd" class="btn btn-outline-success"> Kaydet </button>
+</div>
+
+
+<div class="mb-3 p-3 col-md-6 borderCustom ">
+    <h5>ID ye göre deneyim getir</h5>
+    <input class="form-control" id="getByIdExperience" placeholder="ID giriniz..." />
+    <div class="my-3" id="getByIdResult"></div>
+    <button type="button" id="btnGetById" class="btn btn-outline-success"> ID ye göre getir </button>
+    <button type="button" id="btnDelById" class="btn btn-outline-success"> ID ye göre deneyim sil </button>
+
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script>
+
+    $("#getList").click(function () {
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "Get",
+            url: "/Experience2/ListExperience/",
+
+            success: function (response) {
+                let experiences = jQuery.parseJSON(response);
+                console.log(experiences);
+                let htmlString = `<table class="table table-bordered">
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Başlık</th>
+                                                    <th>Tarih</th>
+                                                </tr>`;
+                $.each(experiences, (index, value) => {
+                    htmlString += `<tr> <td>${value.ExperienceId}</td>
+                                            <td>${value.Name}</td>
+                                            <td>${value.Date}</td>
+                                       </tr>`
+                });
+
+                htmlString += `</table>`;
+                $("#listExperience").html(htmlString);
+            }
+        })
+    })
+
+    $("#btnAdd").click(function () {
+        let values = {
+            Name: $("#inpTitle").val(),
+            Date: $("#inpDate").val()
+        };
+
+        $.ajax({
+            type: "post",
+            url: "/Experience2/AddExperience/",
+            data: values,
+            // contentType:"application/json",
+            // dataType:"json",
+
+            success: function (response) {
+                $("#getList").click();
+                alert("ekleme başarılı");
+            }
+        })
+    })
+
+    $("#btnGetById").click(x => {
+        let id = $("#getByIdExperience").val();
+
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "get",
+            url: "/Experience2/GetById/",
+            data: { ExperienceIdx: id },
+
+            success: function (response) {
+                let parsedVal = jQuery.parseJSON(response);
+
+                console.log(parsedVal);
+
+                let htmlStr2 = `<table class="table table-bordered"> <tr> <th> ${parsedVal.ExperienceId}  </th> <td> ${parsedVal.Name} </td> </tr> </table>`;
+
+                $("#getByIdResult").html(htmlStr2);
+            }
+        })
+
+        console.log(id);
+    })
+
+    $("#btnDelById").click(x => {
+        let value = $("#getByIdExperience").val();
+        console.log(value);
+
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "get",
+            url: "/Experience2/DeleteById/" + value,
+
+            success: function (response) {
+                console.log("Silme başarılı");
+                $("#getList").click();
+            }
+
+        })
+
+    })
+
+</script>

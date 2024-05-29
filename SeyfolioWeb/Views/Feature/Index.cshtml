@@ -1,0 +1,35 @@
+﻿@model Feature
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DarkAdminLayout.cshtml";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Giriş Bölümü Bilgileri</h4>
+
+           
+                <dl class="w-100">
+                    <div class="row w-100">
+                        <dt class="col-2">Selamlama</dt>
+                        <dd class="col-10">@Model.Header</dd>
+                    </div>   
+                    
+                    <div class="row w-100">
+                        <dt class="col-2">Ad Soyad</dt>
+                        <dd class="col-10">@Model.Name</dd>
+                    </div>
+
+                    <div class="row w-100">
+                        <dt class="col-2">Pozisyon (Görev)</dt>
+                        <dd class="col-10">@Model.Title</dd>
+                    </div>
+                </dl>
+         
+        </div>
+    </div>
+</div>
+
+<a href="/Feature/UpdateFeature/" class="btn btn-primary ml-3">GÜNCELLE</a>

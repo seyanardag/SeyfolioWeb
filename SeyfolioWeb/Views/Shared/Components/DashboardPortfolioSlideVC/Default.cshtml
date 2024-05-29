@@ -1,0 +1,28 @@
+﻿@model List<Portfolio>
+
+<div class="col-md-6 col-xl-4 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title"> Proje Ekran Görüntüleri </h4>
+            <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
+
+                @foreach (var portfolio in Model)
+                {
+                    <div class="item">
+                        <img src="@portfolio.ImageUrl" alt="" width="300" height="300" style="object-fit:cover">
+                        <div>Proje Adı: @portfolio.ProjectName </div>
+                        <div class="progress progress-md portfolio-progress">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: @portfolio.CompletionValue%" aria-valuenow="@portfolio.CompletionValue" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                }
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

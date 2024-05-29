@@ -1,0 +1,39 @@
+﻿@model Skill
+
+
+@{
+    ViewData["Title"] = "UpdateSkill";
+    Layout = "~/Views/Shared/_DarkAdminLayout.cshtml";
+}
+
+<div class="mx-4 " style="min-height:50vh">
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">  Yetenek Güncelle </h4>
+
+                <form class="forms-sample" action="/Skill/UpdateSkill" method="post">
+
+                    <input type="hidden" name="SkillId" value="@Model.SkillId" />
+
+
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        <input class="form-control" asp-for="Title" />
+                        <span asp-validation-for="Title" class="text-danger" ></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label>Oran</label>
+                        <input class="form-control" asp-for="Value" />
+                        <span asp-validation-for="Value" class="text-danger"></span>
+
+                    </div>
+
+                    <button class="btn btn-success mt-3" type="submit">GÜNCELLE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

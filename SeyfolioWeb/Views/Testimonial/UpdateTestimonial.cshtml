@@ -1,0 +1,49 @@
+﻿@model Testimonial
+@{
+    ViewData["Title"] = "UpdateTestimonial";
+    Layout = "~/Views/Shared/_DarkAdminLayout.cshtml";
+}
+
+
+<div class="mx-4 " style="min-height:50vh">
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">  Yetenek Güncelle </h4>
+
+                <form class="forms-sample" action="/Testimonial/UpdateTestimonial" method="post">
+
+                    <input type="hidden" name="TestimonialId" value="@Model.TestimonialId" />
+
+
+                    <div class="form-group">
+                        <label>Müşteri Adı</label>
+                        <input class="form-control" asp-for="ClientlName" />
+                        <span asp-validation-for="ClientlName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Şirket</label>
+                        <input class="form-control" asp-for="Company" />
+                        <span asp-validation-for="Company" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Müşteri Yorumu</label>
+                        <input class="form-control" asp-for="Comment" />
+                        <span asp-validation-for="Comment" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Foto</label>
+                        <input class="form-control" asp-for="ImageUrl" />
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div>
+
+                    <button class="btn btn-success mt-3" type="submit">GÜNCELLE</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

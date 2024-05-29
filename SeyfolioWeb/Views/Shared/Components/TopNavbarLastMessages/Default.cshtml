@@ -1,0 +1,53 @@
+﻿@model List<WriterMessage>
+
+
+
+
+<li class="nav-item dropdown border-left">
+    <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+        <i class="mdi mdi-email"></i>
+        <span class="count bg-success"></span>
+    </a>
+
+    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+        <h6 class="p-3 mb-0">Mesajlar</h6>
+
+        @foreach(var item in Model) {
+        
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item preview-item" href="/AdminMessage/MessageDetail/@item.WriterMessageId">
+            <div class="preview-thumbnail">
+                <img src="~/DarkTemplate/Template/assets/images/faces/face@(item.WriterMessageId % 5).jpg" alt="image" class="rounded-circle profile-pic">
+            </div>
+            <div class="preview-item-content">
+                <p class="preview-subject ellipsis mb-1"> @item.SenderName mesaj gönderdi </p>
+                    <p class="text-muted mb-0">
+
+                        @{
+                            TimeSpan fark = DateTime.Now - item.Date;
+                            int gun = (int)fark.Days;
+                            int saat = (int)fark.Hours;
+                            int dakika = (int)fark.Minutes;
+
+                            string gunStr = gun.ToString() + " gün ";
+                            string saatStr = saat.ToString() + " saat ";
+                            string dakikaStr = dakika.ToString() + " dakika ";
+                          
+                        }
+                        
+                        @if(gun>0)                        
+                            @gunStr
+                        @if(saat > 0)
+                            @saatStr
+                        @if (dakika > 0)
+                            @dakikaStr
+
+                        önce
+                    </p>
+                </div>
+        </a>
+        }
+
+ 
+    </div>
+</li>

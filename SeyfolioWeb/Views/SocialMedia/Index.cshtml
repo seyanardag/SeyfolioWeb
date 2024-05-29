@@ -1,0 +1,54 @@
+﻿@model List<SocialMedia>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DarkAdminLayout.cshtml";
+}
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title"> Sosyal Medya Bağlantıları Tablosu </h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>BAŞLIK</th>
+                            <th>Link</th>
+                            <th>SİL</th>
+                            <th>GÜNCELLE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <th>
+                                    @item.SocialMediaId
+                                </th>
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    @item.Url
+                                </td>
+                                <td> <a href="/SocialMedia/Delete/@item.SocialMediaId" class="btn btn-danger"> SİL </a> </td>
+                                <td> <a href="/SocialMedia/Update/@item.SocialMediaId" class="btn btn-primary"> GÜNCELLE </a> </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="/SocialMedia/Add" class="btn btn-success ml-3"> YENİ SOSYAL MEDYA BAĞLANTISI EKLE </a>
+
